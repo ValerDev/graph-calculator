@@ -18,10 +18,10 @@ class App extends React.Component {
 
     //min, max
 
-    const minX = 0;
-    const maxX = c.width;
-    const minY = 0;
-    const maxY = c.height;
+    const Xmin = 0;
+    const Xmax = c.width;
+    const Ymin = 0;
+    const Ymax = c.height;
 
     // X and Y 
     ctx.beginPath();
@@ -30,12 +30,12 @@ class App extends React.Component {
     ctx.lineTo(500, 250)
     ctx.moveTo(250, 0)
     ctx.lineTo(250, 500)
-    ctx.font = "30px Arial";
+    ctx.font = "30px Cursive";
     ctx.fillStyle = 'white';
     ctx.fillText("X", 470, 230);
     ctx.fillText("Y", 270, 30);
-    ctx.fillText("^", 243, 22);
-    ctx.fillText(">", 483, 261);
+    ctx.fillText("^", 241, 25);
+    ctx.fillText(">", 490, 260);
     ctx.stroke();
 
 
@@ -44,17 +44,22 @@ class App extends React.Component {
     ctx.strokeStyle = colors[randomNumber];
 
     ctx.moveTo(center[0], center[1]);
-    ctx.quadraticCurveTo(minX, maxY / 2, minX, maxY);
+    ctx.quadraticCurveTo(Xmin, Ymax / 2, Xmin, Ymax);
 
     ctx.moveTo(center[0], center[1]);
-    ctx.quadraticCurveTo(maxX, maxY / 2, maxX, minY);
+    ctx.quadraticCurveTo(Xmax, Ymax / 2, Xmax, Ymin);
     ctx.stroke();
 
   }
   render() {
     return (
-      <div className="App" style={{ padding: 1 + "em" }}>
-        <canvas id="myCanvas" width="500" height="500" style={{ border: 1 + 'px' + ' solid' + '#000000' }}></canvas>
+      <div className="App">
+        <div className="input-block">
+          <input onChange={e => e.target.value} />
+          <button type="submit">Create graph</button>
+        </div>
+
+        <canvas id="myCanvas" width="500" height="500" ></canvas>
       </div>
     );
   }
