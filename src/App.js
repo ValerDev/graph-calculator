@@ -48,6 +48,7 @@ class App extends React.Component {
 
     ctx.moveTo(center[0], center[1]);
     ctx.quadraticCurveTo(Xmax, Ymax / 2, Xmax, Ymin);
+    ctx.lineWidth = 3;
     ctx.stroke();
 
   }
