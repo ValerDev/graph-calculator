@@ -43,6 +43,9 @@ class App extends React.Component {
     ctx.beginPath();
     ctx.strokeStyle = colors[randomNumber];
 
+    ctx.moveTo(center[0], center[1])
+    ctx.lineTo(Xmax, Ymin)
+
     ctx.moveTo(center[0], center[1]);
     ctx.quadraticCurveTo(Xmin, Ymax / 2, Xmin, Ymax);
 
@@ -55,11 +58,14 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <div className="input-block">
-          <input onChange={e => e.target.value} />
-          <button type="submit">Create graph</button>
-        </div>
-
+        <form className="inputs-block">
+          <input onChange={e => e.target.value} placeholder="Mathematical expression.." />
+          <div className="digital-range">
+            <input onChange={e => e.target.value} placeholder="Minimal value.." />
+            <input onChange={e => e.target.value} placeholder="Maximal value.." />
+          </div>
+          <button type="submit">Plot function</button>
+        </form>
         <canvas id="myCanvas" width="500" height="500" ></canvas>
       </div>
     );

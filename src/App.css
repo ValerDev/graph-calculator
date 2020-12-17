@@ -3,53 +3,111 @@
     width: 100%;
     height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.App .input-block {
-    position: absolute;
-    top: 3em;
-    left: 3em;
-    display: flex;
     justify-content: space-around;
+    align-items: flex-start;
 }
-
-.App .input-block input {
+canvas{
+    width: 35%;
+    height: 500px;
+}
+.App>*{
+    margin-top: 5em;
+}
+.App .inputs-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+}
+.App .inputs-block>*{
+    width: 100%;
+    margin: .5em 0;
+}
+.App .inputs-block>input{
+    padding: .5em ;
+    max-width: 480px;
+}
+.App .inputs-block input {
     background-color: #363533;
     border: none;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    color: #fff;
+    color: #7c7a7a;
     outline: none;
     border-radius: 5px;
-    padding: .5em;
     font-size: 20px;
-    width: 60%;
+    transition: .2s;
 }
-
-.App .input-block button {
+.App .inputs-block input:focus {
+    background-color: #444444;
+    color: #000;
+}
+.App .inputs-block .digital-range{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.App .inputs-block .digital-range>input{
+    width: 45%;
+    padding: .5em;
+}
+.App .inputs-block button {
     background-color: #363533;
     border: none;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    color: #fff;
+    color: #7c7a7a;
     outline: none;
     border-radius: 5px;
     cursor: pointer;
     transition: .2s;
-    width: 25%;
-    width: max-content;
+    font-size: 20px;
+    padding: .5em 0;
 }
-
-.App .input-block button:hover {
+.App .inputs-block button:hover {
     background-color: #444444;
+    color: #000;
 }
 
-.App .input-block button:active {
-    transform: scale(.95);
+.App .inputs-block button:active {
+    transform: scale(.98);
 }
 
 canvas {
     border-radius: 5px;
     background-color: #363533;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+@media only screen and (max-width: 767px){
+    .App {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100%;
+    }
+    .App>* {
+        margin: 3em 0;
+    }
+    .App .inputs-block{
+        width: 90%;
+    }
+    canvas{
+        width: 90%;
+        height: 100%;
+    }
+    .App .inputs-block>input{
+        padding: .5em ;
+        max-width: 95%;
+    }
+    .App .inputs-block .digital-range{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .App .inputs-block .digital-range input{
+        margin: .5em 0;
+        width: 100%;
+        max-width: 95%;
+    }
 }
