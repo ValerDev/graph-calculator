@@ -7,7 +7,7 @@ class App extends React.Component {
     func: '',
     max: '',
     min: '',
-    colors: ['red', 'green', 'blue', 'yellow', 'purple', 'orange'],
+    colors: ['crimson', 'SeaGreen', 'RoyalBlue', 'DarkOrange', 'Indigo'],
     randomNumber: 1,
     x: [],
     y: [],
@@ -34,25 +34,40 @@ class App extends React.Component {
     // X and Y lines
     ctx.beginPath();
     ctx.strokeStyle = 'white';
-    ctx.moveTo(0, 250)
-    ctx.lineTo(500, 250)
-    ctx.moveTo(250, 0)
-    ctx.lineTo(250, 500)
+    ctx.moveTo(20, 250)
+    ctx.lineTo(480, 250)
+    ctx.moveTo(250, 20)
+    ctx.lineTo(250, 480)
     ctx.font = "30px Cursive";
     ctx.fillStyle = 'white';
     ctx.fillText("X", 470, 230);
     ctx.fillText("Y", 270, 30);
-    ctx.fillText("^", 241, 25);
-    ctx.fillText(">", 490, 260);
+    ctx.fillText("^", 241, 40);
+    ctx.fillText(">", 475, 260);
+    ctx.font = "8px Cursive";
+    for (let i = -20, j = 40; i < 0, j < 250; i += 4, j += 40) {
+      ctx.fillText(i, j, 265);
+    }
+    for (let i = 4, j = 280; i < 20, j < 460; i += 4, j += 40) {
+      ctx.fillText(i, j, 265);
+    }
+
+    for (let i = 20, j = 50; i < 4, j < 250; i -= 4, j += 40) {
+      ctx.fillText(i, 260, j);
+    }
+
+    for (let i = -4, j = 290; i < -20, j < 480; i -= 4, j += 40) {
+      ctx.fillText(i, 260, j);
+    }
     ctx.stroke();
-    ctx.lineWidth = 2;
+    ctx.lineWidth = 3;
   }
 
   // create graph function
 
   plotFunction = (e) => {
     this.setState({
-      randomNumber: Math.floor(Math.random() * (this.state.colors.length - 1))
+      randomNumber: Math.floor(Math.random() * (this.state.colors.length ))
     })
     e.preventDefault()
     let exp = this.state.func
@@ -72,10 +87,9 @@ class App extends React.Component {
         } else if (expToArr.join('').split("(")[0] === "sqrt") {
           expToArr.unshift("Math.")
         }
-
       })
       this.state.x.push(i * 10);
-      this.state.y.push(+eval(expToArr.join('')) * 5)
+      this.state.y.push(+eval(expToArr.join('')) * 10)
 
       this.setState({
         x: [],
@@ -102,7 +116,6 @@ class App extends React.Component {
         this.state.centerY - this.state.y[i]);
     }
     this.state.ctx.stroke()
-
     this.setState({
       blocker: false
     })
@@ -132,10 +145,13 @@ class App extends React.Component {
     return (
       <div className="App">
         <form className="inputs-block">
-          <input onChange={this.handlePlotFunction} placeholder="Mathematical expression.." />
+          <label htmlFor="expressonY"  >
+            &nbsp; Y =
+            <input id="expressonY" onChange={this.handlePlotFunction} placeholder="Mathematical expression.." autoComplete="off" />
+          </label>
           <div className="digital-range">
-            <input onChange={this.handleMinValue} placeholder="Minimal value.." />
-            <input onChange={this.handleMaxValue} placeholder="Maximal value.." />
+            <input onChange={this.handleMinValue} placeholder="Min value of x.." />
+            <input onChange={this.handleMaxValue} placeholder="Max value of x.." />
           </div>
           <button onClick={this.plotFunction}>Plot function</button>
         </form>

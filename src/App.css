@@ -22,34 +22,47 @@ canvas{
 }
 .App .inputs-block>*{
     width: 100%;
-    margin: .5em 0;
+    margin: .5em auto;
 }
 .App .inputs-block>input{
     padding: .5em ;
     max-width: 480px;
 }
-.App .inputs-block input {
+.App .inputs-block label{
     background-color: #363533;
     border: none;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     color: #7c7a7a;
     outline: none;
     border-radius: 5px;
+    padding: .5em 0;
+    font-size: 20px;
+    transition: .2s;
+}
+.App .inputs-block input {
+    width: 80%;
+    background-color: #363533;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    color: #7c7a7a;
+    padding: 0 .5em;
     font-size: 20px;
     transition: .2s;
 }
 .App .inputs-block input:focus {
-    background-color: #444444;
     color: #000;
 }
+
 .App .inputs-block .digital-range{
     display: flex;
     justify-content: space-between;
     width: 100%;
 }
 .App .inputs-block .digital-range>input{
-    width: 45%;
+    width: 48%;
     padding: .5em;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 .App .inputs-block button {
     background-color: #363533;
@@ -78,7 +91,7 @@ canvas {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
-@media only screen and (max-width: 767px){
+@media only screen and (max-width: 991px){
     .App {
         flex-direction: column;
         justify-content: center;
@@ -96,18 +109,14 @@ canvas {
         width: 90%;
         height: 100%;
     }
-    .App .inputs-block>input{
-        padding: .5em ;
-        max-width: 95%;
-    }
     .App .inputs-block .digital-range{
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
-    .App .inputs-block .digital-range input{
+    .App .inputs-block .digital-range>input{
         margin: .5em 0;
         width: 100%;
-        max-width: 95%;
+        max-width: 100%;
     }
 }
