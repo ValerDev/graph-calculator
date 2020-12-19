@@ -64,7 +64,7 @@ canvas{
     padding: .5em;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
-.App .inputs-block button {
+.App .inputs-block button, .error-block .back  {
     background-color: #363533;
     border: none;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
@@ -76,12 +76,12 @@ canvas{
     font-size: 20px;
     padding: .5em 0;
 }
-.App .inputs-block button:hover {
+.App .inputs-block button:hover ,.error-block .back:hover{
     background-color: #444444;
     color: #000;
 }
 
-.App .inputs-block button:active {
+.App .inputs-block button:active,.error-block .back:active {
     transform: scale(.98);
 }
 
@@ -91,6 +91,41 @@ canvas {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
+.error-block{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    background-color: #282726;
+}
+.error-block .error{
+    color: crimson;
+    text-align: center;
+    font-size: 30px;
+    
+}
+.error-block .back{
+    padding: .5em;
+    margin: .5em;
+}
+.main-content{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.docs{
+    padding: 1em;
+}
+.docs .title{
+    color: #7c7a7a;
+    margin: 1em 0;
+}
+.docs span{
+    margin: 1em 0;
+
+    color: #7c7a7a;
+}
 @media only screen and (max-width: 991px){
     .App {
         flex-direction: column;
@@ -105,6 +140,12 @@ canvas {
     .App .inputs-block{
         width: 90%;
     }
+    .main-content{
+        align-items: center;    
+        flex-direction: column-reverse;
+        width: 80%;
+    }
+    
     canvas{
         width: 90%;
         height: 100%;
@@ -118,5 +159,8 @@ canvas {
         margin: .5em 0;
         width: 100%;
         max-width: 100%;
+    }
+    .error-block{
+        height: 100vh;
     }
 }
