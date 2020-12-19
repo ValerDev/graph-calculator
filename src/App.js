@@ -46,7 +46,7 @@ class App extends React.Component {
     ctx.fillText(">", 475, 260);
     ctx.font = "8px Cursive";
     for (let i = -20, j = 43; i < 0, j < 250; i += 4, j += 40) {
-      ctx.fillText(i, j, 265);
+      ctx.fillText(i, j, 265) ;
     }
     for (let i = 4, j = 285; i < 20, j < 460; i += 4, j += 40) {
       ctx.fillText(i, j, 265);
@@ -206,7 +206,8 @@ class App extends React.Component {
             </span>
           </div>
         </div>
-        <canvas id="myCanvas" width="500" height="500" ></canvas>
+          <button onClick={()=>window.location.reload()} className="clear-graphs">Clear graphs</button>
+          <canvas id="myCanvas" width="500" height="500" ></canvas>
       </div>
     );
   }
