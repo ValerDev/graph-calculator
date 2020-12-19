@@ -183,7 +183,6 @@ class App extends React.Component {
           </form>
           <div className="docs">
             <h2 className='title'>Notes</h2>
-            <span>
               <ul>
                 <li>
                   Please enter the variable as ‘x’( e.g. 1 / x).
@@ -203,7 +202,6 @@ class App extends React.Component {
               </ul>
               <br />
               Have fun!
-            </span>
           </div>
         </div>
           <button onClick={()=>window.location.reload()} className="clear-graphs">Clear graphs</button>

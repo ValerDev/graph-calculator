@@ -120,17 +120,17 @@ canvas {
     border-radius: 8px;
     background-color: #363533;
     margin: 1em 0;
+    color: #7c7a7a;
 }
 .docs .title{
     color: #7c7a7a;
-    margin: 1em 0;
+    margin: .5em 0 0;
 }
-.docs span{
-    margin: 1em 0;
-    color: #7c7a7a;
+.docs ul{
+    margin: .5em 0;
+    padding: 1em;
 }
 .docs span ul{
-    padding: 1em;
 }
 .clear-graphs{
     font-size: 14px;
