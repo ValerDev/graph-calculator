@@ -116,6 +116,10 @@ canvas {
 }
 .docs{
     padding: 1em;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    border-radius: 8px;
+    background-color: #363533;
+    margin: 1em 0;
 }
 .docs .title{
     color: #7c7a7a;
@@ -125,9 +129,12 @@ canvas {
     margin: 1em 0;
     color: #7c7a7a;
 }
+.docs span ul{
+    padding: 1em;
+}
 .clear-graphs{
+    font-size: 14px;
     padding: .5em;
-    margin: 3.5em 0;
 }
 @media only screen and (max-width: 991px){
     .App {
@@ -164,9 +171,10 @@ canvas {
         max-width: 100%;
     }
     .error-block{
+        width: 80%;
         height: 100vh;
     }
     .clear-graphs{
-        margin: 1em 0;
+        margin: 0;
     }
 }
